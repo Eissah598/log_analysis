@@ -31,6 +31,7 @@ HOW TO RUN:
 1.Go to the sharable folder then create some views the following are the queries to create views
 VIEWS:
     1.KEYS AND REQUESTS VIEW - displays the slug as keys and individual article status count    as requests
+    
       QUERY:
       '''create view keysnrequests as select count(l.path) as requests,replace(l.path, '/article/', '') as key from articles ar inner join log l on ar.slug=replace(l.path, '/article/', '') where l.status = '200 OK' and l.path != '/' group by l.path;'''
 
